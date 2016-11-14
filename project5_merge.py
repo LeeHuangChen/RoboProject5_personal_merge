@@ -70,6 +70,19 @@ universe2=None
 chain=None
 chain2=None
 
+
+class MyProjectionEvaluator(ob.ProjectionEvaluator):
+    def __init__(self, space, cellSizes):
+        super(MyProjectionEvaluator, self).__init__(space)
+        #self.setCellSizes(cellSizes)
+
+    def getDimension(self):
+        return 2
+
+    def project(self, state, projection):
+        projection[0] = state[0].value
+        projection[1] = state[1].value
+
 def isStateValid(state):
     # Some arbitrary condition on the state (note that thanks to
     # dynamic type checking we can just call getX() and do not need
@@ -104,9 +117,13 @@ def planWithSimpleSetup():
     # create an So2 state space
     n=numberOfResidues*2
     space = ob.CompoundStateSpace()
+    n
 
     for i in range(n):
     	space.addSubspace(ob.SO2StateSpace(),1)
+
+    myProjection = MyProjectionEvaluator(space,0.1)
+    space.registerDefaultProjection(myProjection)
     
 
 
@@ -157,10 +174,12 @@ def planWithSimpleSetup():
 
     
     #ss.setStartAndGoalStates(start, goal)
+
+    
     ss.setStartState(start)
     ss.setGoal(ob.Goal(ss.getSpaceInformation()))
 
-    planner=og.KPIECE(ss.getSpaceInformation())
+    planner=og.KPIECE1(ss.getSpaceInformation())
     ss.setPlanner(planner)
     ss.setup()
 
