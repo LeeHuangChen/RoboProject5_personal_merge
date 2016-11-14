@@ -61,10 +61,14 @@ from Scientific.Visualization import VMD; module = VMD
 
 import numpy as np
 
-
-sc="NULL"
-numberOfResidues="NULL"
-universe="NULL"
+global sc2
+sc=None
+sc2=None
+numberOfResidues=None
+universe=None
+universe2=None
+chain=None
+chain2=None
 
 def isStateValid(state):
     # Some arbitrary condition on the state (note that thanks to
@@ -76,12 +80,12 @@ def isStateValid(state):
     kb = 1.3806488e-23
     T=300
     for i in range(0,len(sc)):
-    	sc[i].phiAngle().setValue(state[j].value)
+    	sc2[i].phiAngle().setValue(state[j].value)
     	j=j+1
 
-    	sc[i].psiAngle().setValue(state[j].value)
+    	sc2[i].psiAngle().setValue(state[j].value)
     	j=j+1
-    enext=universe.energy()
+    enext=universe2.energy()
     print "(",einit,",",enext,")"
 
     threshold=np.exp((einit-enext)/(kb*T))
@@ -139,6 +143,13 @@ def planWithSimpleSetup():
     protein = Protein(chain)
     universe.addObject(protein)
     energy = universe.energy()
+
+    global universe2
+    universe2 = InfiniteUniverse(Amber94ForceField())
+    protein2=Protein(chain2)
+    universe2.addObject(protein2)
+
+
     print energy
 
 
@@ -149,13 +160,13 @@ def planWithSimpleSetup():
     ss.setStartState(start)
     ss.setGoal(ob.Goal(ss.getSpaceInformation()))
 
-    planner=og.RRT(ss.getSpaceInformation())
+    planner=og.KPIECE(ss.getSpaceInformation())
     ss.setPlanner(planner)
     ss.setup()
 
     # this will automatically choose a default planner with
     # default parameters
-    solved = ss.solve(10)
+    solved = ss.solve(50)
 
     if solved:
         # try to shorten the path
@@ -171,9 +182,18 @@ def planWithSimpleSetup():
 
 
 if __name__ == "__main__":
-	configuration = PDBConfiguration('2YCC.pdb')
-	chains = configuration.createPeptideChains()
-	chain = chains[0]
-	sc = chain[11:27]
-	numberOfResidues = len(sc)
-	planWithSimpleSetup()
+    configuration = PDBConfiguration('2YCC.pdb')
+    chains = configuration.createPeptideChains()
+    chain = chains[0]
+    sc = chain[11:27]
+
+    configuration2 = PDBConfiguration('2YCC.pdb')
+    chains2 = configuration.createPeptideChains()
+    chain2 = chains2[0]
+    
+    sc2 = chain2[11:27]
+
+
+
+    numberOfResidues = len(sc)
+    planWithSimpleSetup()
