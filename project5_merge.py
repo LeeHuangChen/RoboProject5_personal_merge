@@ -68,7 +68,22 @@ def isStateValid(state):
     # dynamic type checking we can just call getX() and do not need
     # to convert state to an SE2State.)
     #return state[0].value < .6 or state[1].value <.6
-    return True
+    ci=universe.energy()
+    j=0
+    for i in range(0,len(sc)):
+    	sc[i].phiAngle().setValue(state[j].value)
+    	j=j+1
+
+    	sc[i].psiAngle().setValue(state[j].value)
+    	j=j+1
+    cnext=universe.energy()
+    print "(",ci,",",cnext,")"
+
+    if(cnext<=ci):
+    	return True
+    else:
+    	return True
+    
 
 def planWithSimpleSetup():
     # create an So2 state space
@@ -108,6 +123,7 @@ def planWithSimpleSetup():
     	j=j+1
 
     #print goalAngles
+    global universe 
     universe = InfiniteUniverse(Amber94ForceField())
     protein = Protein(chain)
     universe.addObject(protein)
