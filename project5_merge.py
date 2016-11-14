@@ -110,15 +110,15 @@ def planWithSimpleSetup():
     	#print i,	
     	#goalAngles.append(sc[i].chiAngle().getValue())
 
-    	goal[j]=sc[i].phiAngle().getValue()
-    	sc[i].phiAngle().setValue(.5)
-    	start[j]=.5
+    	start[j]=sc[i].phiAngle().getValue()
+    	#sc[i].phiAngle().setValue(.5)
+    	#start[j]=.5
 
     	j=j+1
 
-    	goal[j]=sc[i].psiAngle().getValue()
-    	sc[i].psiAngle().setValue(.5)
-    	start[j]=.5
+    	start[j]=sc[i].psiAngle().getValue()
+    	#sc[i].psiAngle().setValue(.5)
+    	#start[j]=.5
 
     	j=j+1
 
@@ -134,7 +134,9 @@ def planWithSimpleSetup():
     
 
     
-    ss.setStartAndGoalStates(start, goal)
+    #ss.setStartAndGoalStates(start, goal)
+    ss.setStartState(start)
+    ss.setGoal(ob.Goal(ss.getSpaceInformation()))
 
     # this will automatically choose a default planner with
     # default parameters
