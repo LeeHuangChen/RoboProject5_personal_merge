@@ -39,13 +39,14 @@
 try:
     from ompl import base as ob
     from ompl import geometric as og
+    from ompl import util as ou
 except:
     # if the ompl module is not in the PYTHONPATH assume it is installed in a
     # subdirectory of the parent directory called "py-bindings."
     from os.path import abspath, dirname, join
     import sys
     sys.path.insert(0, join(dirname(dirname(abspath(__file__))),'py-bindings'))
-    from ompl import util as ou
+    
     from ompl import base as ob
     from ompl import geometric as og
 
@@ -58,6 +59,8 @@ from MMTK.ForceFields import Amber94ForceField
 #from MMTK.Visualization import view
 from Scientific.Visualization import VMD; module = VMD
 
+import numpy as np
+
 
 sc="NULL"
 numberOfResidues="NULL"
@@ -68,21 +71,29 @@ def isStateValid(state):
     # dynamic type checking we can just call getX() and do not need
     # to convert state to an SE2State.)
     #return state[0].value < .6 or state[1].value <.6
-    ci=universe.energy()
+    einit=universe.energy()
     j=0
+    kb = 1.3806488e-23
+    T=300
     for i in range(0,len(sc)):
     	sc[i].phiAngle().setValue(state[j].value)
     	j=j+1
 
     	sc[i].psiAngle().setValue(state[j].value)
     	j=j+1
-    cnext=universe.energy()
-    print "(",ci,",",cnext,")"
+    enext=universe.energy()
+    print "(",einit,",",enext,")"
 
-    if(cnext<=ci):
+    threshold=np.exp((einit-enext)/(kb*T))
+    rng=ou.RNG()
+    if(enext<=einit):
     	return True
     else:
-    	return True
+    	rValue=rng.uniform01()
+    	if(rValue<threshold):
+    		return True
+    	else:
+    		return False
     
 
 def planWithSimpleSetup():
@@ -138,9 +149,13 @@ def planWithSimpleSetup():
     ss.setStartState(start)
     ss.setGoal(ob.Goal(ss.getSpaceInformation()))
 
+    planner=og.RRT(ss.getSpaceInformation())
+    ss.setPlanner(planner)
+    ss.setup()
+
     # this will automatically choose a default planner with
     # default parameters
-    solved = ss.solve(1.0)
+    solved = ss.solve(10)
 
     if solved:
         # try to shorten the path
@@ -148,7 +163,11 @@ def planWithSimpleSetup():
         # print the simplified path
         print(ss.getSolutionPath())
         
-
+    pds=ob.PlannerDataStorage()
+    plannerdata=ob.PlannerData(ss.getSpaceInformation())
+    planner.getPlannerData(plannerdata)
+    pds.store(plannerdata,"PlannerData.txt")
+    
 
 
 if __name__ == "__main__":
