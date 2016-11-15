@@ -1,0 +1,253 @@
+HEADER    ELECTRON TRANSPORT (HEME PROTEIN)       29-JAN-91   2YCC      2YCC   2
+COMPND    CYTOCHROME $C (ISOZYME 1) (OXIDIZED) (MUTANT WITH CYS 102     2YCC   3
+COMPND   2 REPLACED BY THR) (/C102T$)                                   2YCC   4
+SOURCE    BAKER'S YEAST (SACCHAROMYCES $CEREVISIAE)                     2YCC   5
+AUTHOR    A.M.BERGHUIS,G.D.BRAYER                                       2YCC   6
+REVDAT   1   15-JUL-92 2YCC    0                                        2YCC   7
+JRNL        AUTH   A.M.BERGHUIS,G.D.BRAYER                              2YCC   8
+JRNL        TITL   OXIDATION STATE-DEPENDENT CONFORMATIONAL CHANGES     2YCC   9
+JRNL        TITL 2 IN CYTOCHROME $C                                     2YCC  10
+JRNL        REF    J.MOL.BIOL.                   V. 223   959 1992      2YCC  11
+JRNL        REFN   ASTM JMOBAK  UK ISSN 0022-2836                  070  2YCC  12
+REMARK   1                                                              2YCC  13
+REMARK   1 REFERENCE 1                                                  2YCC  14
+REMARK   1  AUTH   G.V.LOUIE,G.D.BRAYER                                 2YCC  15
+REMARK   1  TITL   HIGH-RESOLUTION REFINEMENT OF YEAST                  2YCC  16
+REMARK   1  TITL 2 ISO-1-*CYTOCHROME $C AND COMPARISONS WITH OTHER      2YCC  17
+REMARK   1  TITL 3 EUKARYOTIC CYTOCHROMES $C                            2YCC  18
+REMARK   1  REF    J.MOL.BIOL.                   V. 214   527 1990      2YCC  19
+REMARK   1  REFN   ASTM JMOBAK  UK ISSN 0022-2836                  070  2YCC  20
+REMARK   1 REFERENCE 2                                                  2YCC  21
+REMARK   1  AUTH   G.V.LOUIE,G.D.BRAYER                                 2YCC  22
+REMARK   1  TITL   A POLYPEPTIDE CHAIN-REFOLDING EVENT OCCURS IN THE    2YCC  23
+REMARK   1  TITL 2 GLY82 VARIANT OF YEAST ISO-1-CYTOCHROME $C           2YCC  24
+REMARK   1  REF    J.MOL.BIOL.                   V. 210   313 1989      2YCC  25
+REMARK   1  REFN   ASTM JMOBAK  UK ISSN 0022-2836                  070  2YCC  26
+REMARK   1 REFERENCE 3                                                  2YCC  27
+REMARK   1  AUTH   C.J.LEUNG,B.T.NALL,G.D.BRAYER                        2YCC  28
+REMARK   1  TITL   CRYSTALLIZATION OF YEAST ISO-2-CYTOCHROME $C USING   2YCC  29
+REMARK   1  TITL 2 A NOVEL HAIR SEEDING TECHNIQUE                       2YCC  30
+REMARK   1  REF    J.MOL.BIOL.                   V. 206   783 1989      2YCC  31
+REMARK   1  REFN   ASTM JMOBAK  UK ISSN 0022-2836                  070  2YCC  32
+REMARK   1 REFERENCE 4                                                  2YCC  33
+REMARK   1  AUTH   G.V.LOUIE,W.L.B.HUTCHEON,G.D.BRAYER                  2YCC  34
+REMARK   1  TITL   YEAST ISO-1-*CYTOCHROME $C. A 2.8 ANGSTROM           2YCC  35
+REMARK   1  TITL 2 RESOLUTION THREE-DIMENSIONAL STRUCTURE               2YCC  36
+REMARK   1  TITL 3 DETERMINATION                                        2YCC  37
+REMARK   1  REF    J.MOL.BIOL.                   V. 199   295 1988      2YCC  38
+REMARK   1  REFN   ASTM JMOBAK  UK ISSN 0022-2836                  070  2YCC  39
+REMARK   1 REFERENCE 5                                                  2YCC  40
+REMARK   1  AUTH   G.V.LOUIE,G.J.PIELAK,M.SMITH,G.D.BRAYER              2YCC  41
+REMARK   1  TITL   ROLE OF PHENYLALANINE-82 IN YEAST                    2YCC  42
+REMARK   1  TITL 2 ISO-1-CYTOCHROME $C AND REMOTE CONFORMATIONAL        2YCC  43
+REMARK   1  TITL 3 CHANGES INDUCED BY A SERINE RESIDUE AT THIS          2YCC  44
+REMARK   1  TITL 4 POSITION                                             2YCC  45
+REMARK   1  REF    BIOCHEMISTRY                  V.  27  7870 1988      2YCC  46
+REMARK   1  REFN   ASTM BICHAW  US ISSN 0006-2960                  033  2YCC  47
+REMARK   2                                                              2YCC  48
+REMARK   2 RESOLUTION. 1.9 ANGSTROMS.                                   2YCC  49
+REMARK   3                                                              2YCC  50
+REMARK   3 REFINEMENT. BY THE RESTRAINED LEAST-SQUARES PROCEDURE OF J.  2YCC  51
+REMARK   3  KONNERT AND W. HENDRICKSON (PROGRAM *PROLSQ*).  THE R       2YCC  52
+REMARK   3  VALUE IS 0.197.  THE RMS DEVIATION FROM IDEALITY OF THE     2YCC  53
+REMARK   3  BOND LENGTHS IS 0.022 ANGSTROMS.  THE RMS DEVIATION FROM    2YCC  54
+REMARK   3  IDEALITY OF THE BOND ANGLE DISTANCES IS 0.046 ANGSTROMS.    2YCC  55
+REMARK   4                                                              2YCC  56
+REMARK   4 THE AMINO ACID NUMBERING SCHEME IS BASED ON AN ALIGNMENT TO  2YCC  57
+REMARK   4 THE SEQUENCE OF VERTEBRATE CYTOCHROME C'S.  THE N-TERMINAL   2YCC  58
+REMARK   4 RESIDUE IS NUMBERED -5 AND THE C-TERMINAL RESIDUE IS         2YCC  59
+REMARK   4 NUMBERED 103.                                                2YCC  60
+REMARK   5                                                              2YCC  61
+REMARK   5 THE NUMBERING OF SOLVENT MOLECULES IN OXIDIZED YEAST         2YCC  62
+REMARK   5 ISO-1-CYTOCHROME $C IS IDENTICAL TO THAT OF THE REDUCED      2YCC  63
+REMARK   5 FORM (PROTEIN DATA BANK ENTRY 1YCC).  WATER MOLECULES NOT    2YCC  64
+REMARK   5 FOUND IN REDUCED YEAST ISO-1-CYTOCHROME $C HAVE BEEN         2YCC  65
+REMARK   5 ASSIGNED NUMBERS STARTING WITH 300.                          2YCC  66
+REMARK   6                                                              2YCC  67
+REMARK   6 TO OVERLAY THE YEAST ISO-1-CYTOCHROME C OXIDIZED STRUCTURE   2YCC  68
+REMARK   6 ON TOP OF THE REDUCED FORM (PROTEIN DATA BANK ENTRY 1YCC)    2YCC  69
+REMARK   6 THE FOLLOWING ROTATION MATRIX PLUS TRANSLATION VECTOR        2YCC  70
+REMARK   6 SHOULD BE APPLIED TO THE COORDINATES IN THIS ENTRY:          2YCC  71
+REMARK   6                                                              2YCC  72
+REMARK   6   0.99998  0.00077  0.00605        0.02034                   2YCC  73
+REMARK   6  -0.00079  0.99999  0.00348       -0.00593                   2YCC  74
+REMARK   6  -0.00605 -0.00348  0.99998        0.09970                   2YCC  75
+REMARK   7                                                              2YCC  76
+REMARK   7 THIS PROTEIN HAS BEEN STABILIZED FOR ANALYSES BY THE         2YCC  77
+REMARK   7 MUTATION OF CYSTEINE 102 TO A THREONINE RESIDUE.             2YCC  78
+REMARK   8                                                              2YCC  79
+REMARK   8 RESIDUE 72 IS EPSILON-N-TRIMETHYLLYSINE.  THE THREE METHYL   2YCC  80
+REMARK   8 CARBONS FOR THIS RESIDUE ARE PRESENT AS HETATMS WITH         2YCC  81
+REMARK   8 RESIDUE NAME TML (FOLLOWING THE HEME).  RESIDUE 72 IS        2YCC  82
+REMARK   8 IDENTIFIED AS LYS ON THE ATOM AND SEQRES RECORDS.            2YCC  83
+REMARK   9                                                              2YCC  84
+REMARK   9 THE END OF THE 50 HELIX (RESIDUE 55) IS DISTORTED.           2YCC  85
+REMARK  10                                                              2YCC  86
+REMARK  10 RESIDUES IN SHEET S1 FORM A HIGHLY DISTORTED BETA TYPE       2YCC  87
+REMARK  10 CONFORMATION.                                                2YCC  88
+REMARK  11                                                              2YCC  89
+REMARK  11 IN TURN T5 THE H-BOND IS MEDIATED THROUGH A WATER MOLECULE.  2YCC  90
+REMARK  12                                                              2YCC  91
+REMARK  12 IN ORDER TO CORRECTLY INDICATE IDENTICAL ATOMS BETWEEN THE   2YCC  92
+REMARK  12 COORDINATE ENTRIES OF THE REDUCED AND OXIDIZED FORMS OF      2YCC  93
+REMARK  12 YEAST ISO-1 CYTOCHROME C (PROTEIN DATA BANK ENTRIES 1YCC     2YCC  94
+REMARK  12 AND 2YCC, RESPECTIVELY), THE SIDE-CHAIN ATOM NAMES OF        2YCC  95
+REMARK  12 SEVERAL RESIDUES CANNOT FOLLOW IUPAC/IUB SPECIFICATIONS      2YCC  96
+REMARK  12 WITH RESPECT TO THE DESIGNATION OF 1 AND 2 FOR BRANCHED      2YCC  97
+REMARK  12 SIDE CHAINS.  THE AFFECTED RESIDUES ARE GLU -4, GLU 21,      2YCC  98
+REMARK  12 ARG 38, GLU 44, TYR 46, ASP 50, GLU 61, TYR 67, PHE 82, AND  2YCC  99
+REMARK  12 ASP 90.                                                      2YCC 100
+SEQRES   1    107  THR GLU PHE LYS ALA GLY SER ALA LYS LYS GLY ALA THR  2YCC 101
+SEQRES   2    107  LEU PHE LYS THR ARG CYS LEU GLN CYS HIS THR VAL GLU  2YCC 102
+SEQRES   3    107  LYS GLY GLY PRO HIS LYS VAL GLY PRO ASN LEU HIS GLY  2YCC 103
+SEQRES   4    107  ILE PHE GLY ARG HIS SER GLY GLN ALA GLU GLY TYR SER  2YCC 104
+SEQRES   5    107  TYR THR ASP ALA ASN ILE LYS LYS ASN VAL LEU TRP ASP  2YCC 105
+SEQRES   6    107  GLU ASN ASN MET SER GLU TYR LEU THR ASN PRO LYS LYS  2YCC 106
+SEQRES   7    107  TYR ILE PRO GLY THR LYS MET ALA PHE GLY GLY LEU LYS  2YCC 107
+SEQRES   8    107  LYS GLU LYS ASP ARG ASN ASP LEU ILE THR TYR LEU LYS  2YCC 108
+SEQRES   9    107  LYS ALA THR GLU                                      2YCC 109
+FTNOTE   1                                                              2YCC 110
+FTNOTE   1 RESIDUE LYS 72 AND TML 72 FORM EPSILON-N-TRIMETHYLLYSINE.    2YCC 111
+FTNOTE   1 SEE REMARK 8 ABOVE.                                          2YCC 112
+FTNOTE   2                                                              2YCC 113
+FTNOTE   2 THE HEME GROUP IS COVALENTLY ATTACHED TO THE PROTEIN         2YCC 114
+FTNOTE   2 VIA THIOETHER BONDS TO THE SG ATOMS OF CYS 14 AND CYS 17.    2YCC 115
+FTNOTE   3                                                              2YCC 116
+FTNOTE   3 IN ORDER TO CORRECTLY INDICATE IDENTICAL ATOMS BETWEEN THE   2YCC 117
+FTNOTE   3 COORDINATE ENTRIES OF THE REDUCED AND OXIDIZED FORMS OF      2YCC 118
+FTNOTE   3 YEAST ISO-1 CYTOCHROME C (PROTEIN DATA BANK ENTRIES 1YCC     2YCC 119
+FTNOTE   3 AND 2YCC, RESPECTIVELY), THE SIDE-CHAIN ATOM NAMES OF        2YCC 120
+FTNOTE   3 SEVERAL RESIDUES CANNOT FOLLOW IUPAC/IUB SPECIFICATIONS      2YCC 121
+FTNOTE   3 WITH RESPECT TO THE DESIGNATION OF 1 AND 2 FOR BRANCHED      2YCC 122
+FTNOTE   3 SIDE CHAINS.  THE AFFECTED RESIDUES ARE GLU -4, GLU 21,      2YCC 123
+FTNOTE   3 ARG 38, GLU 44, TYR 46, ASP 50, GLU 61, TYR 67, PHE 82, AND  2YCC 124
+FTNOTE   3 ASP 90.                                                      2YCC 125
+HET    HEM    104      43     PROTOPROPHYRIN IX CONTAINS FE(III)        2YCC 126
+HET    TML     72       3     METHYL PART OF EPS-N-TRIMETHYLLYSINE 72   2YCC 127
+HET    SO4    117       5     SULFATE GROUP                             2YCC 128
+FORMUL   2  HEM    C34 H30 N4 O4 ---- FE1 +++                           2YCC 129
+FORMUL   3  TML    C3 H9                                                2YCC 130
+FORMUL   4  SO4    O4 S1 --                                             2YCC 131
+FORMUL   5  HOH   *61(H2 O1)                                            2YCC 132
+HELIX    1  NT SER      2  CYS     14  1                                2YCC 133
+HELIX    2  50 THR     49  LYS     55  1 RESIDUE 55 DISTORTED           2YCC 134
+HELIX    3  60 ASP     60  ASN     70  1                                2YCC 135
+HELIX    4  70 ASN     70  ILE     75  1                                2YCC 136
+HELIX    5  CT LYS     87  THR    102  1                                2YCC 137
+SHEET    1  S1 2 GLY    37  SER    40  0                                2YCC 138
+SHEET    2  S1 2 VAL    57  TRP    59 -1  O  VAL    57   N  SER    40   2YCC 139
+TURN     1  T1 GLU    21  GLY    24     TYPE II                         2YCC 140
+TURN     2  T2 LYS    27  GLY    29     GAMMA TURN                      2YCC 141
+TURN     3  T3 LEU    32  ILE    35     TYPE II                         2YCC 142
+TURN     4  T4 ILE    35  ARG    38     TYPE II                         2YCC 143
+TURN     5  T5 ALA    43  TYR    46     TYPE II  (DISTORTED)            2YCC 144
+TURN     6  T6 ILE    75  THR    78     TYPE II                         2YCC 145
+CRYST1   36.470   36.470  137.240  90.00  90.00  90.00 P 43 21 2     8  2YCC 146
+ORIGX1      1.000000  0.000000  0.000000        0.00000                 2YCC 147
+ORIGX2      0.000000  1.000000  0.000000        0.00000                 2YCC 148
+ORIGX3      0.000000  0.000000  1.000000        0.00000                 2YCC 149
+SCALE1      0.027420  0.000000  0.000000        0.00000                 2YCC 150
+SCALE2      0.000000  0.027420  0.000000        0.00000                 2YCC 151
+SCALE3      0.000000  0.000000  0.007287        0.00000                 2YCC 152
+
+ATOM    110  N   LYS    11       0.170  30.706   6.986  1.00  2.37      2YCC 262
+ATOM    111  CA  LYS    11      -0.141  31.775   7.890  1.00  6.59      2YCC 263
+ATOM    112  C   LYS    11      -1.446  31.389   8.637  1.00  6.65      2YCC 264
+ATOM    113  O   LYS    11      -1.420  31.249   9.823  1.00  7.25      2YCC 265
+ATOM    114  CB  LYS    11      -0.502  33.166   7.229  1.00  4.98      2YCC 266
+ATOM    115  CG  LYS    11       0.732  33.429   6.322  1.00  4.37      2YCC 267
+ATOM    116  CD  LYS    11       0.834  34.893   5.891  1.00  6.78      2YCC 268
+ATOM    117  CE  LYS    11       1.536  34.989   4.494  1.00  3.56      2YCC 269
+ATOM    118  NZ  LYS    11       1.832  36.491   4.360  1.00  6.06      2YCC 270
+ATOM    119  N   THR    12      -2.534  31.170   7.960  1.00  7.06      2YCC 271
+ATOM    120  CA  THR    12      -3.812  30.827   8.521  1.00  6.45      2YCC 272
+ATOM    121  C   THR    12      -3.797  29.505   9.225  1.00  8.15      2YCC 273
+ATOM    122  O   THR    12      -4.490  29.448  10.224  1.00  6.55      2YCC 274
+ATOM    123  CB  THR    12      -5.073  31.034   7.569  1.00  9.22      2YCC 275
+ATOM    124  OG1 THR    12      -5.020  30.157   6.375  1.00  2.18      2YCC 276
+ATOM    125  CG2 THR    12      -5.356  32.539   7.286  1.00  5.95      2YCC 277
+ATOM    126  N   ARG    13      -3.013  28.505   8.859  1.00  7.79      2YCC 278
+ATOM    127  CA  ARG    13      -3.025  27.192   9.441  1.00  9.66      2YCC 279
+ATOM    128  C   ARG    13      -1.841  26.568  10.154  1.00  7.22      2YCC 280
+ATOM    129  O   ARG    13      -2.136  25.497  10.783  1.00  6.06      2YCC 281
+ATOM    130  CB  ARG    13      -3.434  26.050   8.395  1.00 11.45      2YCC 282
+ATOM    131  CG  ARG    13      -4.691  26.383   7.669  1.00 17.16      2YCC 283
+ATOM    132  CD  ARG    13      -5.554  25.293   7.205  1.00 18.92      2YCC 284
+ATOM    133  NE  ARG    13      -6.147  24.519   8.258  1.00 22.21      2YCC 285
+ATOM    134  CZ  ARG    13      -6.749  23.343   8.297  1.00 22.67      2YCC 286
+ATOM    135  NH1 ARG    13      -6.937  22.540   7.251  1.00 22.73      2YCC 287
+ATOM    136  NH2 ARG    13      -7.133  22.912   9.517  1.00 21.53      2YCC 288
+ATOM    137  N   CYS    14      -0.684  27.106  10.153  1.00  6.36   2  2YCC 289
+ATOM    138  CA  CYS    14       0.509  26.514  10.746  1.00  7.44   2  2YCC 290
+ATOM    139  C   CYS    14       1.324  27.613  11.497  1.00  7.27   2  2YCC 291
+ATOM    140  O   CYS    14       2.209  27.204  12.300  1.00  9.46   2  2YCC 292
+ATOM    141  CB  CYS    14       1.425  25.980   9.666  1.00  6.25   2  2YCC 293
+ATOM    142  SG  CYS    14       0.731  24.990   8.275  1.00  2.69   2  2YCC 294
+ATOM    143  N   LEU    15       1.148  28.870  11.245  1.00  5.30      2YCC 295
+ATOM    144  CA  LEU    15       1.938  29.915  11.949  1.00  8.21      2YCC 296
+ATOM    145  C   LEU    15       1.750  29.937  13.452  1.00  9.38      2YCC 297
+ATOM    146  O   LEU    15       2.749  30.213  14.228  1.00 11.34      2YCC 298
+ATOM    147  CB  LEU    15       1.645  31.258  11.287  1.00  8.28      2YCC 299
+ATOM    148  CG  LEU    15       2.278  32.531  11.766  1.00  6.34      2YCC 300
+ATOM    149  CD1 LEU    15       3.830  32.346  11.848  1.00  6.76      2YCC 301
+ATOM    150  CD2 LEU    15       1.926  33.617  10.768  1.00  6.70      2YCC 302
+
+CONECT  142  141  872                                                   2YCC1114
+CONECT  165  164  880                                                   2YCC1115
+CONECT  175  173  174  850                                              2YCC1116
+CONECT  598  597  893  894  895                                         2YCC1117
+CONECT  661  660  662  850                                              2YCC1118
+CONECT  850  175  661  855  866                                         2YCC1119
+CONECT  850  874  882                                                   2YCC1120
+CONECT  851  856  886                                                   2YCC1121
+CONECT  852  859  867                                                   2YCC1122
+CONECT  853  870  875                                                   2YCC1123
+CONECT  854  878  883                                                   2YCC1124
+CONECT  855  850  856  859                                              2YCC1125
+CONECT  856  851  855  857                                              2YCC1126
+CONECT  857  856  858  861                                              2YCC1127
+CONECT  858  857  859  860                                              2YCC1128
+CONECT  859  852  855  858                                              2YCC1129
+CONECT  860  858                                                        2YCC1130
+CONECT  861  857  862                                                   2YCC1131
+CONECT  862  861  863                                                   2YCC1132
+CONECT  863  862  864  865                                              2YCC1133
+CONECT  864  863                                                        2YCC1134
+CONECT  865  863                                                        2YCC1135
+CONECT  866  850  867  870                                              2YCC1136
+CONECT  867  852  866  868                                              2YCC1137
+CONECT  868  867  869  871                                              2YCC1138
+CONECT  869  868  870  872                                              2YCC1139
+CONECT  870  853  866  869                                              2YCC1140
+CONECT  871  868                                                        2YCC1141
+CONECT  872  142  869  873                                              2YCC1142
+CONECT  873  872                                                        2YCC1143
+CONECT  874  850  875  878                                              2YCC1144
+CONECT  875  853  874  876                                              2YCC1145
+CONECT  876  875  877  879                                              2YCC1146
+CONECT  877  876  878  880                                              2YCC1147
+CONECT  878  854  874  877                                              2YCC1148
+CONECT  879  876                                                        2YCC1149
+CONECT  880  165  877  881                                              2YCC1150
+CONECT  881  880                                                        2YCC1151
+CONECT  882  850  883  886                                              2YCC1152
+CONECT  883  854  882  884                                              2YCC1153
+CONECT  884  883  885  887                                              2YCC1154
+CONECT  885  884  886  888                                              2YCC1155
+CONECT  886  851  882  885                                              2YCC1156
+CONECT  887  884                                                        2YCC1157
+CONECT  888  885  889                                                   2YCC1158
+CONECT  889  888  890                                                   2YCC1159
+CONECT  890  889  891  892                                              2YCC1160
+CONECT  891  890                                                        2YCC1161
+CONECT  892  890                                                        2YCC1162
+CONECT  893  598                                                        2YCC1163
+CONECT  894  598                                                        2YCC1164
+CONECT  895  598                                                        2YCC1165
+CONECT  901  902  903  904  905                                         2YCC1166
+CONECT  902  901                                                        2YCC1167
+CONECT  903  901                                                        2YCC1168
+CONECT  904  901                                                        2YCC1169
+CONECT  905  901                                                        2YCC1170
+MASTER       88   16    3    5    2    6    0    6  960    1   57    9  2YCC1171
+END                                                                     2YCC1172
