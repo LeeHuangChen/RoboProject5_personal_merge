@@ -83,6 +83,17 @@ class MyProjectionEvaluator(ob.ProjectionEvaluator):
         projection[0] = state[0].value
         projection[1] = state[1].value
 
+class MyGoal(ob.Goal):
+    def __init__(self,spaceinfo):
+        super(MyGoal, self).__init__(spaceinfo)
+    def isSatisfied(st):
+        return False
+    # def isSatisfied(st, distance):
+    #     return super(MyGoal, self).isSatisfied(st, distance)
+    def isSatisfied(st, distance):
+        return isSatisfied(st)
+
+
 def isStateValid(state):
     # Some arbitrary condition on the state (note that thanks to
     # dynamic type checking we can just call getX() and do not need
@@ -90,37 +101,50 @@ def isStateValid(state):
     #return state[0].value < .6 or state[1].value <.6
     einit=universe.energy()
     j=0
+    avogadro=6.0221409e23
     kb = 1.3806488e-23
-    T=300
+    kb_corr=kb/1000
+    
+    #print kb
+    T=300.0
+    #T=300e22
     for i in range(0,len(sc)):
-    	sc2[i].phiAngle().setValue(state[j].value)
-    	j=j+1
+        sc2[i].phiAngle().setValue(state[j].value)
+        j=j+1
 
-    	sc2[i].psiAngle().setValue(state[j].value)
-    	j=j+1
+        sc2[i].psiAngle().setValue(state[j].value)
+        j=j+1
     enext=universe2.energy()
-    print "(",einit,",",enext,")"
+    
+    #print (1.0*einit-enext)/(kb*T)
+    threshold=np.exp((1.0*einit-enext)/(kb_corr*T*avogadro))
+    #threshold=np.exp(-2)
+    print "(",einit,",",enext,")",
 
-    threshold=np.exp((einit-enext)/(kb*T))
     rng=ou.RNG()
     if(enext<=einit):
-    	return True
+        print ""
+        return True
     else:
-    	rValue=rng.uniform01()
-    	if(rValue<threshold):
-    		return True
-    	else:
-    		return False
-    
+        print ":(",threshold,",",(1.0*einit-enext)/(kb*T),")"
+        rValue=rng.uniform01()
+        if(rValue>threshold):
+            return True
+        else:
+            return False
+
+def isStateValid2(state):
+    return True;
 
 def planWithSimpleSetup():
     # create an So2 state space
+    print numberOfResidues
     n=numberOfResidues*2
     space = ob.CompoundStateSpace()
-    n
+    
 
-    for i in range(n):
-    	space.addSubspace(ob.SO2StateSpace(),1)
+    for i in range(0,n):
+        space.addSubspace(ob.SO2StateSpace(),1)
 
     myProjection = MyProjectionEvaluator(space,0.1)
     space.registerDefaultProjection(myProjection)
@@ -139,20 +163,21 @@ def planWithSimpleSetup():
     #goalAngles = []
     j=0
     for i in range(0,len(sc)): 
-    	#print i,	
-    	#goalAngles.append(sc[i].chiAngle().getValue())
+        #print i,	
+        #goalAngles.append(sc[i].chiAngle().getValue())
 
-    	start[j]=sc[i].phiAngle().getValue()
-    	#sc[i].phiAngle().setValue(.5)
-    	#start[j]=.5
+        start[j]=sc[i].phiAngle().getValue()
+        #sc[i].phiAngle().setValue(.5)
+        goal[j]=0
 
-    	j=j+1
+        j=j+1
 
-    	start[j]=sc[i].psiAngle().getValue()
-    	#sc[i].psiAngle().setValue(.5)
-    	#start[j]=.5
+        start[j]=sc[i].psiAngle().getValue()
+        #sc[i].psiAngle().setValue(.5)
+        goal[j]=0
 
-    	j=j+1
+        j=j+1
+
 
     #print goalAngles
     global universe 
@@ -166,26 +191,36 @@ def planWithSimpleSetup():
     protein2=Protein(chain2)
     universe2.addObject(protein2)
 
-
+    #print "isvalid:", isStateValid(start)
     print energy
 
 
     
 
     
-    #ss.setStartAndGoalStates(start, goal)
+    ss.setStartAndGoalStates(start, goal)
 
     
-    ss.setStartState(start)
-    ss.setGoal(ob.Goal(ss.getSpaceInformation()))
+    #goal = ob.GoalRegion(ss.getSpaceInformation())
+    #goal = ob.Goal(ss.getSpaceInformation())
+    #goal = MyGoal(ss.getSpaceInformation())
+    #ss.setStartState(start)
+    #ss.setGoal(goal)
 
-    planner=og.KPIECE1(ss.getSpaceInformation())
+    #planner=og.KPIECE1(ss.getSpaceInformation())
+    planner=og.RRT(ss.getSpaceInformation())
+    
     ss.setPlanner(planner)
     ss.setup()
 
-    # this will automatically choose a default planner with
-    # default parameters
-    solved = ss.solve(50)
+    prange=planner.getRange()
+    const=1000
+    prangeNew=prange/const
+    print "range:(",prange,",",prangeNew,")"
+    planner.setRange(prangeNew)
+
+
+    solved = ss.solve(200)
 
     if solved:
         # try to shorten the path
@@ -201,16 +236,26 @@ def planWithSimpleSetup():
 
 
 if __name__ == "__main__":
-    configuration = PDBConfiguration('2YCC.pdb')
+    configuration = PDBConfiguration('2YCC_mod3.pdb')
     chains = configuration.createPeptideChains()
     chain = chains[0]
-    sc = chain[11:27]
+    sc = chain[11:20]
 
-    configuration2 = PDBConfiguration('2YCC.pdb')
+    configuration2 = PDBConfiguration('2YCC_mod3.pdb')
     chains2 = configuration.createPeptideChains()
     chain2 = chains2[0]
-    
-    sc2 = chain2[11:27]
+    sc2 = chain2[11:20]
+
+
+    # configuration = PDBConfiguration('2YCC_mod2.pdb')
+    # chains = configuration.createPeptideChains()
+    # chain = chains[0]
+    # sc = chain[1:4]
+
+    # configuration2 = PDBConfiguration('2YCC_mod2.pdb')
+    # chains2 = configuration.createPeptideChains()
+    # chain2 = chains2[0]
+    # sc2 = chain2[1:4]
 
 
 
