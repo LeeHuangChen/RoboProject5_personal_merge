@@ -70,6 +70,8 @@ universe2=None
 chain=None
 chain2=None
 
+einit = None
+
 
 class MyProjectionEvaluator(ob.ProjectionEvaluator):
     def __init__(self, space, cellSizes):
@@ -99,7 +101,7 @@ def isStateValid(state):
     # dynamic type checking we can just call getX() and do not need
     # to convert state to an SE2State.)
     #return state[0].value < .6 or state[1].value <.6
-    einit=universe.energy()
+    global einit
     j=0
     avogadro=6.0221409e23
     kb = 1.3806488e-23
@@ -116,8 +118,10 @@ def isStateValid(state):
         j=j+1
     enext=universe2.energy()
     
+    exponent=(1.0*einit-enext)/(kb_corr*T*avogadro)
+
     #print (1.0*einit-enext)/(kb*T)
-    threshold=np.exp((1.0*einit-enext)/(kb_corr*T*avogadro))
+    threshold=np.exp(exponent)
     #threshold=np.exp(-2)
     print "(",einit,",",enext,")",
 
@@ -126,9 +130,10 @@ def isStateValid(state):
         print ""
         return True
     else:
-        print ":(",threshold,",",(1.0*einit-enext)/(kb*T),")"
+        print ":(",threshold,",",exponent,")"
         rValue=rng.uniform01()
-        if(rValue>threshold):
+        if(rValue<threshold):
+            einit=enext
             return True
         else:
             return False
@@ -137,6 +142,7 @@ def isStateValid2(state):
     return True;
 
 def planWithSimpleSetup():
+    global einit
     # create an So2 state space
     print numberOfResidues
     n=numberOfResidues*2
@@ -194,7 +200,7 @@ def planWithSimpleSetup():
     #print "isvalid:", isStateValid(start)
     print energy
 
-
+    einit=universe.energy()
     
 
     
@@ -207,20 +213,23 @@ def planWithSimpleSetup():
     #ss.setStartState(start)
     #ss.setGoal(goal)
 
-    #planner=og.KPIECE1(ss.getSpaceInformation())
-    planner=og.RRT(ss.getSpaceInformation())
+    planner=og.KPIECE1(ss.getSpaceInformation())
+    #planner=og.RRT(ss.getSpaceInformation())
+    #planner=og.TRRT(ss.getSpaceInformation())
     
     ss.setPlanner(planner)
     ss.setup()
+    planner.setGoalBias(0)
 
     prange=planner.getRange()
     const=1000
     prangeNew=prange/const
-    print "range:(",prange,",",prangeNew,")"
     planner.setRange(prangeNew)
+    planner.setGoalBias(0)
+    print "range:(",prange,",",prangeNew,")"
 
 
-    solved = ss.solve(200)
+    solved = ss.solve(20)
 
     if solved:
         # try to shorten the path
