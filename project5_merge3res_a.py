@@ -71,6 +71,7 @@ chain=None
 chain2=None
 
 einit = None
+time=None
 
 
 class MyProjectionEvaluator(ob.ProjectionEvaluator):
@@ -228,8 +229,8 @@ def planWithSimpleSetup():
     planner.setGoalBias(0)
     print "range:(",prange,",",prangeNew,")"
 
-
-    solved = ss.solve(20)
+    global time
+    solved = ss.solve(time)
 
     if solved:
         # try to shorten the path
@@ -255,7 +256,11 @@ if __name__ == "__main__":
     chain2 = chains2[0]
     sc2 = chain2[11:20]
 
-
+    seconds = float(raw_input("How many seconds do you want to run the calculation? "))
+    minutes = float(raw_input("How many minutes do you want to run the calculation? "))
+    hours = float(raw_input("How many hours do you want to run the calculation? "))
+    global time;
+    time=seconds+60*(minutes)+60*60*hours
     # configuration = PDBConfiguration('2YCC_mod2.pdb')
     # chains = configuration.createPeptideChains()
     # chain = chains[0]
