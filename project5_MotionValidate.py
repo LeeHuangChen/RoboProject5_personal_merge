@@ -86,16 +86,96 @@ class MyProjectionEvaluator(ob.ProjectionEvaluator):
         projection[0] = state[0].value
         projection[1] = state[1].value
 
-class MyGoal(ob.Goal):
+class MyMotionValidator(ob.MotionValidator):
     def __init__(self,spaceinfo):
-        super(MyGoal, self).__init__(spaceinfo)
-    def isSatisfied(st):
-        return False
-    # def isSatisfied(st, distance):
-    #     return super(MyGoal, self).isSatisfied(st, distance)
-    def isSatisfied(st, distance):
-        return isSatisfied(st)
+        super(MyMotionValidator, self).__init__(spaceinfo)
+    def checkMotion(s1, s2):
+        avogadro=6.0221409e23
+        kb = 1.3806488e-23
+        kb_corr=kb/1000
+        T=300.0
+        
+        j=0
+        for i in range(0,len(sc)):
+            sc[i].phiAngle().setValue(s1[j].value)
+            j=j+1
 
+            sc[i].psiAngle().setValue(s1[j].value)
+            j=j+1
+        einit=universe.energy()
+
+        j=0
+        for i in range(0,len(sc)):
+            sc[i].phiAngle().setValue(s2[j].value)
+            j=j+1
+
+            sc[i].psiAngle().setValue(s2[j].value)
+            j=j+1
+        enext=universe.energy()
+
+        exponent=(1.0*einit-enext)/(kb_corr*T*avogadro)
+        print "(",einit,",",enext,")",
+
+        threshold=np.exp(exponent)
+
+        rng=ou.RNG()
+        if(enext<=einit):
+            print ""
+            return True
+        else:
+            print ":(",threshold,",",exponent,")"
+            rValue=rng.uniform01()
+            if(rValue<threshold):
+                einit=enext
+                return True
+            else:
+                return False
+    def checkMotion(s1, s2, lastValid):
+        lastValid=[]
+        checkMotion(s1,s2)
+
+
+
+
+def isMotionValid(s1, s2):
+    avogadro=6.0221409e23
+    kb = 1.3806488e-23
+    kb_corr=kb/1000
+    T=300.0
+    
+    j=0
+    for i in range(0,len(sc)):
+        sc[i].phiAngle().setValue(s1[j].value)
+        j=j+1
+
+        sc[i].psiAngle().setValue(s1[j].value)
+        j=j+1
+    einit=universe.energy()
+
+    j=0
+    for i in range(0,len(sc)):
+        sc[i].phiAngle().setValue(s2[j].value)
+        j=j+1
+
+        sc[i].psiAngle().setValue(s2[j].value)
+        j=j+1
+    enext=universe.energy()
+
+    exponent=(1.0*einit-enext)/(kb_corr*T*avogadro)
+    print "(",einit,",",enext,")",
+    threshold=np.exp(exponent)
+    rng=ou.RNG()
+    if(enext<=einit):
+        print ""
+        return True
+    else:
+        print ":(",threshold,",",exponent,")"
+        rValue=rng.uniform01()
+        if(rValue<threshold):
+            einit=enext
+            return True
+        else:
+            return False
 
 def isStateValid(state):
     # Some arbitrary condition on the state (note that thanks to
@@ -139,8 +219,6 @@ def isStateValid(state):
         else:
             return False
 
-def isStateValid2(state):
-    return True;
 
 def planWithSimpleSetup():
     global einit
@@ -161,6 +239,10 @@ def planWithSimpleSetup():
     # create a simple setup object
     ss = og.SimpleSetup(space)
     ss.setStateValidityChecker(ob.StateValidityCheckerFn(isStateValid))
+    #ss.setStateValidityChecker(MyMotionValidator(ss.getSpaceInformation()))
+    
+    #ss.getSpaceInformation().setMotionValidator(MyMotionValidator(ss.getSpaceInformation()))
+    #ss.setStateValidityChecker(ob.MotionValidityCheckerFn(isMotionValid))
 
     start = ob.State(space)
 
@@ -259,7 +341,6 @@ if __name__ == "__main__":
     seconds = float(raw_input("How many seconds do you want to run the calculation? "))
     minutes = float(raw_input("How many minutes do you want to run the calculation? "))
     hours = float(raw_input("How many hours do you want to run the calculation? "))
-    global time;
     time=seconds+60*(minutes)+60*60*hours
     # configuration = PDBConfiguration('2YCC_mod2.pdb')
     # chains = configuration.createPeptideChains()
